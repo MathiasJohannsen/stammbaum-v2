@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { RestapiService } from 'src/app/services/restapi.service';
 
 @Component({
   selector: 'app-person',
@@ -21,36 +22,40 @@ export class PersonPage implements OnInit {
 
   constructor(
     private router: Router,
-    private active: ActivatedRoute
+    private active: ActivatedRoute,
+    private api: RestapiService
   ) { }
 
   ngOnInit() {
-    // this.show(this.active.snapshot.paramMap.get('id'));
+    this.show(this.active.snapshot.paramMap.get('id'));
   }
 
-  // async show(id) {
-  //   this.clearVariables();
-  //   this.router.navigate(['person', id]);
-  //   this.getMe(id).then(() => {
-  //     console.log(this.me);
-  //     console.log(this.siblings);
-  //     console.log(this.children);
-  //     console.log(this.partners);
-  //   });
-  // }
+  async show(id) {
+    this.clearVariables();
+    this.router.navigate(['person', id]);
+    this.api.getPerson(id).subscribe(res => {
+      console.log(res);
+    });
+    // this.getMe(id).then(() => {
+    //   console.log(this.me);
+    //   console.log(this.siblings);
+    //   console.log(this.children);
+    //   console.log(this.partners);
+    // });
+  }
 
-  // clearVariables() {
-  //   this.me = { vname: '', nname: '' };
-  //   this.parent_a = { vname: '', nname: '' };
-  //   this.parent_aa = { vname: '', nname: '' };
-  //   this.parent_ab = { vname: '', nname: '' };
-  //   this.parent_b = { vname: '', nname: '' };
-  //   this.parent_ba = { vname: '', nname: '' };
-  //   this.parent_bb = { vname: '', nname: '' };
-  //   this.siblings = [];
-  //   this.children = [];
-  //   this.partners = [];
-  // }
+  clearVariables() {
+    this.me = { vname: '', nname: '' };
+    this.parent_a = { vname: '', nname: '' };
+    this.parent_aa = { vname: '', nname: '' };
+    this.parent_ab = { vname: '', nname: '' };
+    this.parent_b = { vname: '', nname: '' };
+    this.parent_ba = { vname: '', nname: '' };
+    this.parent_bb = { vname: '', nname: '' };
+    this.siblings = [];
+    this.children = [];
+    this.partners = [];
+  }
 
   // async getMe(me_id: string) {
   //   const ref = this.db.collection('person');
