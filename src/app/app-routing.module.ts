@@ -5,6 +5,16 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
+    path: 'search',
+    redirectTo: '/tabs/search',
+    pathMatch: 'full'
+  },
+  {
+    path: 'person/:id',
+    redirectTo: '/tabs/person/:id',
+    pathMatch: 'full'
   }
 ];
 @NgModule({
