@@ -10,7 +10,7 @@
               <ion-card (click)="show(parent_aa.id)">
                 <ion-card-header>
                   <ion-card-title>
-                    {{parent_aa.vname}} {{parent_aa.nname}}
+                    {{parent_aa.first_name}} {{parent_aa.last_name}}
                   </ion-card-title>
                 </ion-card-header>
               </ion-card>
@@ -19,7 +19,7 @@
               <ion-card (click)="show(parent_ab.id)">
                 <ion-card-header>
                   <ion-card-title>
-                    {{parent_ab.vname}} {{parent_ab.nname}}
+                    {{parent_ab.first_name}} {{parent_ab.last_name}}
                   </ion-card-title>
                 </ion-card-header>
               </ion-card>
@@ -30,7 +30,7 @@
               <ion-card (click)="show(parent_a.id)">
                 <ion-card-header>
                   <ion-card-title>
-                    {{parent_a.vname}} {{parent_a.nname}}
+                    {{parent_a.first_name}} {{parent_a.last_name}}
                   </ion-card-title>
                 </ion-card-header>
               </ion-card>
@@ -47,7 +47,7 @@
               <ion-card (click)="show(parent_ba.id)">
                 <ion-card-header>
                   <ion-card-title>
-                    {{parent_ba.vname}} {{parent_ba.nname}}
+                    {{parent_ba.first_name}} {{parent_ba.last_name}}
                   </ion-card-title>
                 </ion-card-header>
               </ion-card>
@@ -56,7 +56,7 @@
               <ion-card (click)="show(parent_bb.id)">
                 <ion-card-header>
                   <ion-card-title> 
-                    {{parent_bb.vname}} {{parent_bb.nname}}
+                    {{parent_bb.first_name}} {{parent_bb.last_name}}
                   </ion-card-title>
                 </ion-card-header>
               </ion-card>
@@ -67,7 +67,7 @@
               <ion-card (click)="show(parent_b.id)">
                 <ion-card-header>
                   <ion-card-title>
-                    {{parent_b.vname}} {{parent_b.nname}}
+                    {{parent_b.first_name}} {{parent_b.last_name}}
                   </ion-card-title>
                 </ion-card-header>
               </ion-card>
@@ -81,7 +81,7 @@
 
     <ion-row class="ion-align-items-center">
       <ion-col size="6"><!-- Partner mit Person -->
-        
+
         <ion-grid>
           <ion-row class="ion-align-items-center">
             <ion-col size="6">
@@ -92,7 +92,7 @@
                     <ion-card (click)="show(partner.id)">
                       <ion-card-header>
                         <ion-card-title>
-                          {{partner.vname}} {{partner.nname}}
+                          {{partner.first_name}} {{partner.last_name}}
                         </ion-card-title>
                       </ion-card-header>
                     </ion-card>
@@ -105,7 +105,7 @@
               
             </ion-col>
             <ion-col class="ion-text-center">
-              <h1><strong>{{me.vname}} {{me.nname}}</strong></h1>
+              <h1><strong>{{me.first_name}} {{me.last_name}}</strong></h1>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -115,7 +115,7 @@
         <ion-card (click)="show(sibling.id)">
           <ion-card-header>
             <ion-card-title>
-              {{sibling.vname}}
+              {{sibling.first_name}}
             </ion-card-title>
           </ion-card-header>
         </ion-card>
@@ -125,21 +125,21 @@
 
     <ion-row>
       <ion-col *ngFor="let child of children" size="3">
-        <ion-card (click)="show(child.me.id)">
+        <ion-card (click)="show(child.id)">
           <ion-card-header>
             <ion-card-title>
-              {{child.me.vname}} {{child.me.nname}}
+              {{child.first_name}} {{child.last_name}}
             </ion-card-title>
             <ion-card-subtitle *ngFor="let partner of child.partners" (click)="show(partner.id)">
               <ion-icon name="infinite-outline"></ion-icon>
-              {{partner.vname}} {{partner.nname}} <br>
+              {{partner.first_name}} {{partner.last_name}} <br>
             </ion-card-subtitle>
           </ion-card-header>
         </ion-card>
         <ion-card *ngFor="let grandchild of child.children" (click)="show(grandchild.id)">
           <ion-card-header>
             <ion-card-subtitle>
-              {{grandchild.vname}}
+              {{grandchild.first_name}}
             </ion-card-subtitle>
           </ion-card-header>
         </ion-card>

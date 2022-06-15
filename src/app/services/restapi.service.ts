@@ -9,15 +9,23 @@ export class RestapiService {
 
   constructor(private http: HttpClient) { }
 
-  getPerson(id) {
+  getPerson(id: number) {
     return this.http.get<any>(environment.api + 'person/' + id);
   }
 
-  getParents(id) {
+  getParents(id: number) {
     return this.http.get<any>(environment.api + 'person/' + id + '/parents');
   }
 
-  getSiblings(id) {
+  getSiblings(id: number) {
     return this.http.get<any>(environment.api + 'person/' + id + '/siblings');
+  }
+
+  getPartners(id: number) {
+    return this.http.get<any>(environment.api + 'person/' + id + '/partners');
+  }
+
+  getChildren(id: number) {
+    return this.http.get<any>(environment.api + 'person/' + id + '/children');
   }
 }
